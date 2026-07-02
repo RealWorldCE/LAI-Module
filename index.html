@@ -110,6 +110,82 @@
     .progress-shell { width: 100%; height: 8px; border-radius: 999px; background: rgba(148,163,184,0.28); overflow: hidden; }
     .progress-bar { width: 0%; height: 100%; border-radius: 999px; background: linear-gradient(90deg, #38bdf8 0%, #2563eb 55%, #6366f1 100%); transition: width 120ms linear; }
     .control-chip { display: inline-flex; align-items: center; gap: .45rem; padding: .55rem .75rem; border-radius: 999px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.10); font-size: .78rem; font-weight: 700; color: rgba(255,255,255,0.88); }
+
+    /* Elite 3D Injection Lab */
+    .elite-lab-shell { min-height: 760px; }
+    .elite-topline { background: linear-gradient(135deg, rgba(2,6,23,.97), rgba(15,23,42,.95) 58%, rgba(30,64,175,.90)); border: 1px solid rgba(96,165,250,.24); box-shadow: 0 28px 70px rgba(2,6,23,.24); }
+    .elite-chip { display:inline-flex; align-items:center; gap:.45rem; padding:.55rem .75rem; border-radius:999px; border:1px solid rgba(148,163,184,.20); background:rgba(15,23,42,.48); color:#dbeafe; font-size:.72rem; font-weight:800; letter-spacing:.04em; }
+    .elite-stepper { display:grid; grid-template-columns:repeat(6,minmax(0,1fr)); gap:.55rem; }
+    .elite-step { position:relative; padding:.7rem .55rem; border-radius:16px; border:1px solid rgba(148,163,184,.16); background:rgba(15,23,42,.44); color:#64748b; text-align:center; transition:180ms ease; }
+    .elite-step .step-dot { width:24px; height:24px; margin:0 auto .35rem; border-radius:999px; display:flex; align-items:center; justify-content:center; background:rgba(148,163,184,.14); font-size:.68rem; font-weight:900; }
+    .elite-step.active { color:#fff; border-color:rgba(56,189,248,.64); background:rgba(37,99,235,.20); box-shadow:0 0 0 1px rgba(56,189,248,.18), 0 10px 24px rgba(37,99,235,.14); }
+    .elite-step.active .step-dot { background:linear-gradient(135deg,#38bdf8,#4f46e5); color:white; }
+    .elite-step.complete { color:#bbf7d0; border-color:rgba(34,197,94,.38); background:rgba(22,163,74,.12); }
+    .elite-step.complete .step-dot { background:#16a34a; color:white; }
+    .elite-grid { display:grid; grid-template-columns:250px minmax(430px,1fr) 330px; gap:1rem; align-items:stretch; }
+    .elite-panel { border-radius:24px; border:1px solid rgba(148,163,184,.16); background:linear-gradient(180deg,rgba(15,23,42,.94),rgba(2,6,23,.96)); box-shadow:0 18px 42px rgba(2,6,23,.18); overflow:hidden; }
+    .elite-panel-header { padding:1rem 1rem .8rem; border-bottom:1px solid rgba(148,163,184,.12); }
+    .elite-site-card { width:100%; text-align:left; padding:.8rem; border-radius:16px; border:1px solid rgba(148,163,184,.14); background:rgba(30,41,59,.52); color:#94a3b8; transition:180ms ease; }
+    .elite-site-card:hover { transform:translateY(-1px); color:white; border-color:rgba(96,165,250,.42); background:rgba(30,64,175,.20); }
+    .elite-site-card.active { color:white; border-color:rgba(56,189,248,.72); background:linear-gradient(135deg,rgba(37,99,235,.32),rgba(79,70,229,.22)); box-shadow:0 12px 26px rgba(37,99,235,.18); }
+    .elite-site-card .site-risk { color:#fbbf24; }
+    .elite-stage { position:relative; min-height:650px; border-radius:24px; overflow:hidden; border:1px solid rgba(96,165,250,.22); background:radial-gradient(circle at 50% 30%,rgba(37,99,235,.26),transparent 32%),linear-gradient(180deg,#071225 0%,#020617 100%); box-shadow:inset 0 0 70px rgba(37,99,235,.08),0 24px 60px rgba(2,6,23,.25); }
+    .elite-stage::before { content:""; position:absolute; inset:0; background-image:linear-gradient(rgba(148,163,184,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(148,163,184,.06) 1px,transparent 1px); background-size:42px 42px; mask-image:linear-gradient(to bottom,rgba(0,0,0,.7),transparent 92%); pointer-events:none; }
+    #elite-three-canvas { position:absolute; inset:0; width:100%; height:100%; display:block; touch-action:none; cursor:grab; }
+    #elite-three-canvas:active { cursor:grabbing; }
+    .stage-toolbar { position:absolute; top:14px; left:14px; right:14px; z-index:8; display:flex; justify-content:space-between; gap:.7rem; pointer-events:none; }
+    .stage-toolbar > * { pointer-events:auto; }
+    .stage-tool-group { display:flex; gap:.45rem; padding:.4rem; border-radius:16px; background:rgba(2,6,23,.58); border:1px solid rgba(148,163,184,.16); backdrop-filter:blur(14px); }
+    .stage-tool { height:36px; min-width:36px; padding:0 .65rem; border-radius:11px; color:#cbd5e1; display:inline-flex; align-items:center; justify-content:center; gap:.35rem; font-size:.7rem; font-weight:800; transition:160ms ease; }
+    .stage-tool:hover,.stage-tool.active { color:white; background:rgba(37,99,235,.65); }
+    .stage-readout { position:absolute; left:16px; bottom:16px; z-index:8; max-width:min(420px,calc(100% - 32px)); padding:.85rem 1rem; border-radius:17px; color:white; background:rgba(2,6,23,.62); border:1px solid rgba(148,163,184,.16); backdrop-filter:blur(15px); }
+    .stage-hint { position:absolute; right:16px; bottom:16px; z-index:8; padding:.65rem .8rem; border-radius:14px; color:#94a3b8; background:rgba(2,6,23,.54); border:1px solid rgba(148,163,184,.14); backdrop-filter:blur(12px); font-size:.68rem; font-weight:700; }
+    .stage-loading { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; color:#94a3b8; z-index:2; }
+    .clinical-score-ring { width:74px; height:74px; border-radius:999px; display:grid; place-items:center; background:conic-gradient(#38bdf8 var(--score,0%),rgba(51,65,85,.72) 0); position:relative; }
+    .clinical-score-ring::after { content:""; position:absolute; inset:7px; border-radius:inherit; background:#07111f; }
+    .clinical-score-ring span { position:relative; z-index:1; color:white; font-weight:900; font-size:1.05rem; }
+    .elite-check { display:flex; align-items:flex-start; gap:.65rem; padding:.62rem .7rem; border-radius:14px; color:#64748b; border:1px solid rgba(148,163,184,.10); background:rgba(15,23,42,.36); transition:160ms ease; }
+    .elite-check.complete { color:#dcfce7; border-color:rgba(34,197,94,.25); background:rgba(22,163,74,.10); }
+    .elite-check.current { color:white; border-color:rgba(56,189,248,.28); background:rgba(37,99,235,.12); }
+    .elite-action { width:100%; display:flex; align-items:center; justify-content:center; gap:.5rem; padding:.78rem .9rem; border-radius:14px; font-size:.78rem; font-weight:850; color:white; background:linear-gradient(135deg,#2563eb,#4f46e5); box-shadow:0 12px 24px rgba(37,99,235,.22); transition:170ms ease; }
+    .elite-action:hover:not(:disabled) { transform:translateY(-1px); box-shadow:0 16px 28px rgba(37,99,235,.30); }
+    .elite-action.secondary { background:rgba(30,41,59,.78); color:#e2e8f0; box-shadow:none; border:1px solid rgba(148,163,184,.16); }
+    .elite-action.success { background:linear-gradient(135deg,#16a34a,#059669); box-shadow:0 12px 24px rgba(16,185,129,.20); }
+    .elite-action:disabled { opacity:.36; cursor:not-allowed; filter:saturate(.6); }
+    .needle-option { flex:1; padding:.58rem .45rem; border-radius:12px; border:1px solid rgba(148,163,184,.14); background:rgba(15,23,42,.62); color:#94a3b8; font-size:.7rem; font-weight:850; }
+    .needle-option.active { color:white; border-color:rgba(56,189,248,.62); background:rgba(37,99,235,.24); }
+    .elite-range { width:100%; accent-color:#38bdf8; }
+    .tissue-gauge { height:68px; border-radius:14px; overflow:hidden; position:relative; border:1px solid rgba(148,163,184,.14); background:linear-gradient(180deg,#f3c9a7 0 28%,#f2d16f 28% 48%,#c85e5e 48% 100%); }
+    .tissue-gauge::after { content:""; position:absolute; left:50%; top:0; width:3px; height:var(--needle-depth,48%); transform:translateX(-50%); background:linear-gradient(#e2e8f0,#94a3b8); box-shadow:0 0 12px rgba(255,255,255,.72); transition:height 160ms ease; }
+    .tissue-labels { position:absolute; inset:0; display:flex; flex-direction:column; justify-content:space-around; padding:.15rem .45rem; color:rgba(15,23,42,.74); font-size:.56rem; font-weight:900; text-transform:uppercase; pointer-events:none; }
+    .elite-toast { position:absolute; left:50%; top:50%; z-index:40; transform:translate(-50%,-50%) scale(.9); opacity:0; pointer-events:none; padding:1rem 1.25rem; border-radius:18px; color:white; font-weight:850; box-shadow:0 24px 60px rgba(2,6,23,.34); transition:220ms ease; text-align:center; }
+    .elite-toast.show { opacity:1; transform:translate(-50%,-50%) scale(1); }
+    .elite-summary { position:fixed; inset:0; z-index:120; display:none; align-items:center; justify-content:center; padding:1.2rem; background:rgba(2,6,23,.72); backdrop-filter:blur(12px); }
+    .elite-summary.show { display:flex; animation:fadeIn 220ms ease; }
+    .elite-summary-card { width:min(720px,100%); max-height:90vh; overflow:auto; border-radius:28px; border:1px solid rgba(96,165,250,.22); background:linear-gradient(180deg,#0f172a,#020617); color:white; box-shadow:0 32px 100px rgba(2,6,23,.58); }
+    .mastery-grade { display:inline-flex; align-items:center; justify-content:center; width:88px; height:88px; border-radius:999px; background:linear-gradient(135deg,#38bdf8,#4f46e5); color:white; font-size:2rem; font-weight:950; box-shadow:0 18px 38px rgba(37,99,235,.30); }
+    .confetti-piece { position:absolute; width:8px; height:14px; border-radius:2px; animation:eliteConfetti 1.5s ease-out forwards; }
+    @keyframes eliteConfetti { from { transform:translateY(-30px) rotate(0); opacity:1; } to { transform:translateY(280px) rotate(600deg); opacity:0; } }
+    @media (max-width: 1250px) {
+      .elite-grid { grid-template-columns:220px minmax(380px,1fr); }
+      .elite-dashboard { grid-column:1 / -1; display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
+      .elite-stage { min-height:610px; }
+    }
+    @media (max-width: 900px) {
+      .elite-grid { grid-template-columns:1fr; }
+      .elite-dashboard { grid-column:auto; display:block; }
+      .elite-stage { min-height:580px; }
+      .elite-stepper { grid-template-columns:repeat(3,minmax(0,1fr)); }
+    }
+    @media (max-width: 600px) {
+      .elite-lab-shell { min-height:0; }
+      .elite-stage { min-height:520px; }
+      .stage-hint { display:none; }
+      .stage-toolbar { flex-wrap:wrap; }
+      .stage-tool span.label { display:none; }
+      .elite-stepper { grid-template-columns:repeat(2,minmax(0,1fr)); }
+    }
+
     @media (max-width: 767px) {
       body { overflow: auto; }
       #app-shell { display: block; min-height: 100dvh; height: auto; overflow: visible; }
@@ -127,6 +203,7 @@
       .mobile-bottom-nav .inner button { width: 100%; }
     }
   </style>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
 </head>
 <body class="text-slate-900">
   <div class="bg-orbs" aria-hidden="true">
@@ -183,7 +260,7 @@
             <div class="flex items-center gap-3"><span class="material-symbols-outlined nav-icon text-slate-400">quiz</span><span class="font-bold text-sm text-left">4. Knowledge Check</span></div>
           </button>
           <button class="nav-btn nav-card" id="btn-simulation" onclick="showSection('simulation')">
-            <div class="flex items-center gap-3"><span class="material-symbols-outlined nav-icon text-slate-400">3d_rotation</span><span class="font-bold text-sm text-left">Virtual Injection Lab</span></div>
+            <div class="flex items-center gap-3"><span class="material-symbols-outlined nav-icon text-slate-400">3d_rotation</span><span class="font-bold text-sm text-left">3D Elite Injection Lab</span></div>
           </button>
         </div>
       </div>
@@ -591,78 +668,151 @@
           <button class="bg-blue-600 text-white font-black px-12 py-5 rounded-full flex items-center gap-3 hover:scale-105 transition-all shadow-2xl shadow-blue-400"
                   onclick="showSection('simulation')">
             <span class="material-symbols-outlined text-3xl">3d_rotation</span>
-            Enter Virtual Injection Lab
+            Enter 3D Elite Injection Lab
           </button>
         </div>
       </section>
 
-      <section class="content-section p-8 h-full flex flex-col hidden" id="simulation">
-        <div class="mb-6 flex items-center justify-between">
-          <div>
-            <h2 class="text-3xl font-black text-slate-900">Virtual Injection Trainer</h2>
-            <p class="text-slate-500 text-sm">Practice identifying landmarks and administering gluteal/Ventrogluteal/deltoid injections.</p>
-          </div>
-          <div class="bg-slate-100 px-4 py-2 rounded-xl text-xs font-bold text-slate-500 uppercase" id="sim-status">
-            Select an Injection Site to Begin
-          </div>
-        </div>
-
-        <div class="flex-1 bg-slate-900 rounded-3xl overflow-hidden relative border-4 border-slate-800 shadow-2xl flex">
-          <div class="w-64 bg-slate-800 p-6 flex flex-col gap-4 border-r border-slate-700">
-            <button class="sim-site-btn p-4 rounded-2xl border-2 border-slate-700 text-slate-400 hover:border-blue-500 transition-all flex flex-col items-center gap-2 group"
-                    onclick="setSimSite('Ventrogluteal', this)">
-              <span class="material-symbols-outlined text-3xl">accessibility</span>
-              <span class="font-bold text-xs uppercase">Ventrogluteal</span>
-            </button>
-
-            <button class="sim-site-btn p-4 rounded-2xl border-2 border-slate-700 text-slate-400 hover:border-blue-500 transition-all flex flex-col items-center gap-2 group"
-                    onclick="setSimSite('gluteal', this)">
-              <span class="material-symbols-outlined text-3xl">syringe</span>
-              <span class="font-bold text-xs uppercase">SUBQ</span>
-            </button>
-
-            <button class="sim-site-btn p-4 rounded-2xl border-2 border-slate-700 text-slate-400 hover:border-blue-500 transition-all flex flex-col items-center gap-2 group"
-                    onclick="setSimSite('dorsal', this)">
-              <span class="material-symbols-outlined text-3xl">back_hand</span>
-              <span class="font-bold text-xs uppercase">Dorsogluteal</span>
-            </button>
-
-            <button class="sim-site-btn p-4 rounded-2xl border-2 border-slate-700 text-slate-400 hover:border-blue-500 transition-all flex flex-col items-center gap-2 group"
-                    onclick="setSimSite('deltoid', this)">
-              <span class="material-symbols-outlined text-3xl">front_hand</span>
-              <span class="font-bold text-xs uppercase">Deltoid</span>
-            </button>
-          </div>
-
-          <div class="flex-1 relative flex items-center justify-start p-8">
-            <div class="relative w-full h-full flex items-center justify-center" id="sim-view">
-              <div class="text-slate-500 text-center">
-                <span class="material-symbols-outlined text-6xl mb-4 block">touch_app</span>
-                <p class="font-bold">Choose an injection site on the left</p>
+      <section class="content-section max-w-[1600px] mx-auto hidden" id="simulation">
+        <div class="elite-lab-shell">
+          <div class="elite-topline rounded-[30px] p-5 md:p-7 text-white mb-4">
+            <div class="flex flex-col xl:flex-row xl:items-center justify-between gap-5">
+              <div>
+                <div class="flex flex-wrap items-center gap-2 mb-3">
+                  <span class="elite-chip"><span class="material-symbols-outlined text-[16px] text-sky-300">deployed_code</span>3D Skills Lab</span>
+                  <span class="elite-chip"><span class="material-symbols-outlined text-[16px] text-emerald-300">verified</span>Guided Competency</span>
+                  <span class="elite-chip"><span class="material-symbols-outlined text-[16px] text-violet-300">neurology</span>Anatomy Layer</span>
+                </div>
+                <h2 class="text-3xl md:text-4xl font-black tracking-tight">Elite Injection Learning Experience</h2>
+                <p class="text-slate-300 mt-2 max-w-3xl text-sm md:text-base">Rotate the 3D patient, select an intramuscular site, verify the procedure, identify landmarks, set technique parameters, and complete a scored injection simulation.</p>
+              </div>
+              <div class="flex items-center gap-4 rounded-2xl bg-white/5 border border-white/10 px-4 py-3">
+                <div class="clinical-score-ring" id="clinical-score-ring" style="--score:0%"><span id="elite-score">0</span></div>
+                <div>
+                  <div class="text-[10px] uppercase tracking-[.2em] text-slate-400 font-extrabold">Clinical Mastery</div>
+                  <div class="font-black text-lg" id="elite-rank">Not Started</div>
+                  <div class="text-xs text-slate-400 mt-0.5" id="elite-progress-label">0 of 6 phases complete</div>
+                </div>
               </div>
             </div>
 
-            <div class="absolute bottom-8 flex gap-4 hidden" id="sim-actions">
-              <button class="bg-white/10 hover:bg-white/20 text-white px-6 py-3 rounded-full font-bold text-sm flex items-center gap-2 border border-white/20"
-                      onclick="simAction('clean')">
-                <span class="material-symbols-outlined">cleaning_services</span> Clean Area
-              </button>
-
-              <button class="bg-white/10 hover:bg-white/20 text-white px-6 py-3 rounded-full font-bold text-sm flex items-center gap-2 border border-white/20"
-                      onclick="simAction('locate')">
-                <span class="material-symbols-outlined">my_location</span> Find Landmark
-              </button>
-
-              <button class="bg-blue-600 hover:bg-blue-500 text-white px-8 py-3 rounded-full font-bold text-sm flex items-center gap-2 shadow-xl shadow-blue-500/20 opacity-50 cursor-not-allowed"
-                      id="inject-btn" onclick="simAction('inject')">
-                <span class="material-symbols-outlined">vaccines</span> Administer Dose
-              </button>
+            <div class="elite-stepper mt-5" id="elite-stepper">
+              <div class="elite-step active" data-phase="0"><div class="step-dot">1</div><div class="text-[10px] font-extrabold uppercase">Site</div></div>
+              <div class="elite-step" data-phase="1"><div class="step-dot">2</div><div class="text-[10px] font-extrabold uppercase">Verify</div></div>
+              <div class="elite-step" data-phase="2"><div class="step-dot">3</div><div class="text-[10px] font-extrabold uppercase">Prepare</div></div>
+              <div class="elite-step" data-phase="3"><div class="step-dot">4</div><div class="text-[10px] font-extrabold uppercase">Landmark</div></div>
+              <div class="elite-step" data-phase="4"><div class="step-dot">5</div><div class="text-[10px] font-extrabold uppercase">Inject</div></div>
+              <div class="elite-step" data-phase="5"><div class="step-dot">6</div><div class="text-[10px] font-extrabold uppercase">Debrief</div></div>
             </div>
           </div>
 
-          <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-blue-600 text-white px-8 py-4 rounded-2xl font-bold shadow-2xl transition-all duration-300 scale-0 opacity-0 pointer-events-none z-50"
-               id="sim-msg" aria-live="polite">
+          <div class="elite-grid">
+            <aside class="elite-panel">
+              <div class="elite-panel-header">
+                <div class="text-[10px] uppercase tracking-[.2em] font-extrabold text-slate-500">Patient Scenario</div>
+                <div class="mt-2 flex items-center gap-3">
+                  <div class="w-10 h-10 rounded-xl bg-blue-500/15 text-blue-300 flex items-center justify-center"><span class="material-symbols-outlined">person</span></div>
+                  <div><div class="text-white font-extrabold text-sm">Adult Patient</div><div class="text-slate-500 text-xs">Average build · IM training</div></div>
+                </div>
+              </div>
+              <div class="p-3 space-y-2">
+                <div class="px-2 pt-1 pb-2 text-[10px] uppercase tracking-[.18em] font-extrabold text-slate-500">Select Injection Site</div>
+                <button class="elite-site-card" data-site="ventrogluteal" onclick="setEliteSite('ventrogluteal', this)">
+                  <div class="flex items-center gap-3"><span class="material-symbols-outlined text-sky-300">accessibility_new</span><div><div class="font-extrabold text-sm">Ventrogluteal</div><div class="text-[10px] mt-1 opacity-70">Lateral hip landmarking</div></div></div>
+                </button>
+                <button class="elite-site-card" data-site="deltoid" onclick="setEliteSite('deltoid', this)">
+                  <div class="flex items-center gap-3"><span class="material-symbols-outlined text-sky-300">front_hand</span><div><div class="font-extrabold text-sm">Deltoid</div><div class="text-[10px] mt-1 opacity-70">Upper-arm landmarking</div></div></div>
+                </button>
+                <button class="elite-site-card" data-site="vastus" onclick="setEliteSite('vastus', this)">
+                  <div class="flex items-center gap-3"><span class="material-symbols-outlined text-sky-300">directions_walk</span><div><div class="font-extrabold text-sm">Vastus Lateralis</div><div class="text-[10px] mt-1 opacity-70">Lateral thigh landmarking</div></div></div>
+                </button>
+                <button class="elite-site-card" data-site="dorsogluteal" onclick="setEliteSite('dorsogluteal', this)">
+                  <div class="flex items-center gap-3"><span class="material-symbols-outlined text-amber-300">warning</span><div><div class="font-extrabold text-sm">Dorsogluteal</div><div class="site-risk text-[10px] mt-1">Safety-zone review</div></div></div>
+                </button>
+              </div>
+              <div class="p-3 border-t border-slate-700/40">
+                <div class="rounded-2xl p-3 bg-slate-900/60 border border-slate-700/50">
+                  <div class="flex items-center justify-between gap-2"><span class="text-[10px] uppercase tracking-[.16em] font-extrabold text-slate-500">Training Mode</span><button id="guidance-toggle" onclick="toggleEliteGuidance()" class="text-[10px] font-extrabold text-sky-300">GUIDED</button></div>
+                  <p class="text-xs text-slate-400 mt-2 leading-relaxed" id="guidance-copy">Coaching prompts and landmark cues are enabled.</p>
+                </div>
+                <button class="elite-action secondary mt-3" onclick="resetEliteLab()"><span class="material-symbols-outlined text-[18px]">restart_alt</span>Reset Lab</button>
+              </div>
+            </aside>
 
+            <div class="elite-stage" id="elite-stage">
+              <canvas id="elite-three-canvas" aria-label="Interactive 3D patient injection model"></canvas>
+              <div class="stage-loading" id="elite-stage-loading"><div class="text-center"><div class="spinner mx-auto"></div><div class="mt-3 text-xs font-bold">Building 3D patient model…</div></div></div>
+
+              <div class="stage-toolbar">
+                <div class="stage-tool-group">
+                  <button class="stage-tool active" data-view="front" onclick="setEliteView('front', this)" title="Front view"><span class="material-symbols-outlined text-[18px]">person</span><span class="label">Front</span></button>
+                  <button class="stage-tool" data-view="right" onclick="setEliteView('right', this)" title="Right-side view"><span class="material-symbols-outlined text-[18px]">view_sidebar</span><span class="label">Side</span></button>
+                  <button class="stage-tool" data-view="back" onclick="setEliteView('back', this)" title="Posterior view"><span class="material-symbols-outlined text-[18px]">accessibility</span><span class="label">Back</span></button>
+                </div>
+                <div class="stage-tool-group">
+                  <button class="stage-tool" id="anatomy-toggle" onclick="toggleAnatomyLayer()"><span class="material-symbols-outlined text-[18px]">biotech</span><span class="label">Anatomy</span></button>
+                  <button class="stage-tool" onclick="focusSelectedSite()"><span class="material-symbols-outlined text-[18px]">center_focus_strong</span><span class="label">Focus</span></button>
+                </div>
+              </div>
+
+              <div class="stage-readout">
+                <div class="text-[10px] uppercase tracking-[.18em] font-extrabold text-sky-300" id="stage-site-kicker">Awaiting site selection</div>
+                <div class="font-black mt-1" id="stage-site-title">Explore the 3D patient</div>
+                <div class="text-xs text-slate-400 mt-1 leading-relaxed" id="stage-site-copy">Drag to rotate the model, scroll to zoom, or select a site from the left panel.</div>
+              </div>
+              <div class="stage-hint"><span class="material-symbols-outlined text-[14px] align-middle">360</span> Drag to rotate · Scroll to zoom · Click a hotspot</div>
+              <div id="sim-msg" class="elite-toast bg-blue-600" aria-live="polite"></div>
+            </div>
+
+            <aside class="elite-panel elite-dashboard">
+              <div class="elite-panel-header">
+                <div class="flex items-start justify-between gap-3">
+                  <div><div class="text-[10px] uppercase tracking-[.2em] font-extrabold text-slate-500">Procedure Coach</div><div class="text-white font-black mt-1" id="coach-title">Choose an injection site</div></div>
+                  <span id="sim-status" class="px-2.5 py-1 rounded-full text-[9px] font-extrabold uppercase bg-slate-800 text-slate-400">Phase 1</span>
+                </div>
+                <p class="text-xs text-slate-400 mt-2 leading-relaxed" id="coach-copy">Select a hotspot on the 3D patient or use the site menu.</p>
+              </div>
+
+              <div class="p-3 space-y-2" id="procedure-checklist">
+                <div class="elite-check current" data-check="site"><span class="material-symbols-outlined text-[18px]">radio_button_checked</span><div><div class="font-bold text-xs">Select site</div><div class="text-[10px] opacity-70 mt-0.5">Match the site to the scenario.</div></div></div>
+                <div class="elite-check" data-check="verified"><span class="material-symbols-outlined text-[18px]">patient_list</span><div><div class="font-bold text-xs">Verify patient and order</div><div class="text-[10px] opacity-70 mt-0.5">Confirm the rights of medication administration.</div></div></div>
+                <div class="elite-check" data-check="prepared"><span class="material-symbols-outlined text-[18px]">vaccines</span><div><div class="font-bold text-xs">Prepare equipment</div><div class="text-[10px] opacity-70 mt-0.5">Select equipment and apply aseptic technique.</div></div></div>
+                <div class="elite-check" data-check="cleaned"><span class="material-symbols-outlined text-[18px]">cleaning_services</span><div><div class="font-bold text-xs">Clean and landmark</div><div class="text-[10px] opacity-70 mt-0.5">Identify the safe zone before insertion.</div></div></div>
+                <div class="elite-check" data-check="injected"><span class="material-symbols-outlined text-[18px]">check_circle</span><div><div class="font-bold text-xs">Administer and document</div><div class="text-[10px] opacity-70 mt-0.5">Technique is scored in real time.</div></div></div>
+              </div>
+
+              <div class="p-3 border-t border-slate-700/40 space-y-3">
+                <div>
+                  <div class="flex items-center justify-between text-[10px] font-extrabold uppercase tracking-[.14em] text-slate-500"><span>Needle Selection</span><span id="needle-label" class="text-sky-300">1.5 in</span></div>
+                  <div class="flex gap-2 mt-2">
+                    <button class="needle-option" onclick="setNeedleSize('1 in',this)">1 in</button>
+                    <button class="needle-option active" onclick="setNeedleSize('1.5 in',this)">1.5 in</button>
+                  </div>
+                </div>
+                <div>
+                  <div class="flex items-center justify-between text-[10px] font-extrabold uppercase tracking-[.14em] text-slate-500"><span>Insertion Angle</span><span id="angle-value" class="text-white">90°</span></div>
+                  <input id="angle-range" class="elite-range mt-2" type="range" min="45" max="90" value="90" oninput="updateEliteTechnique('angle',this.value)">
+                </div>
+                <div>
+                  <div class="flex items-center justify-between text-[10px] font-extrabold uppercase tracking-[.14em] text-slate-500"><span>Training Depth</span><span id="depth-value" class="text-white">75%</span></div>
+                  <input id="depth-range" class="elite-range mt-2" type="range" min="35" max="100" value="75" oninput="updateEliteTechnique('depth',this.value)">
+                  <div class="tissue-gauge mt-2" id="tissue-gauge" style="--needle-depth:52%"><div class="tissue-labels"><span>Skin</span><span>Subcutaneous</span><span>Muscle target</span></div></div>
+                </div>
+              </div>
+
+              <div class="p-3 border-t border-slate-700/40 space-y-2">
+                <button id="verify-btn" class="elite-action" onclick="completeLabStep('verify')" disabled><span class="material-symbols-outlined text-[18px]">fact_check</span>Verify Patient &amp; Order</button>
+                <button id="prepare-btn" class="elite-action" onclick="completeLabStep('prepare')" disabled><span class="material-symbols-outlined text-[18px]">inventory_2</span>Prepare Equipment</button>
+                <button id="clean-btn" class="elite-action" onclick="completeLabStep('clean')" disabled><span class="material-symbols-outlined text-[18px]">clean_hands</span>Cleanse Site</button>
+                <button id="landmark-btn" class="elite-action" onclick="completeLabStep('landmark')" disabled><span class="material-symbols-outlined text-[18px]">my_location</span>Identify Landmark</button>
+                <button id="inject-btn" class="elite-action success" onclick="performEliteInjection()" disabled><span class="material-symbols-outlined text-[18px]">vaccines</span>Administer Injection</button>
+              </div>
+            </aside>
+          </div>
+
+          <div class="mt-4 rounded-2xl border border-amber-200/70 bg-amber-50 px-4 py-3 flex gap-3 text-amber-900">
+            <span class="material-symbols-outlined text-amber-600">info</span>
+            <p class="text-xs leading-relaxed"><strong>Educational simulation:</strong> Technique, needle selection, medication preparation, and site eligibility must follow the specific product prescribing information, institutional policy, and patient assessment.</p>
           </div>
         </div>
       </section>
@@ -764,14 +914,23 @@
       module2: '2. Shared Decision-Making',
       module3: '3. Clinic Logistics',
       module4: '4. Knowledge Check',
-      simulation: 'Virtual Injection Lab'
+      simulation: '3D Elite Injection Lab'
     };
     let currentSection = 'intro';
 
     let simulationState = {
       site: null,
+      verified: false,
+      prepared: false,
       cleaned: false,
-      located: false
+      located: false,
+      injected: false,
+      angle: 90,
+      depth: 75,
+      needle: '1.5 in',
+      score: 0,
+      phase: 0,
+      guided: true
     };
 
     function showSection(id) {
@@ -795,6 +954,13 @@
 
       // Clear any lingering virtual injection pop-up when navigating between sections.
       hideSimMsg();
+
+      if (id === 'simulation') {
+        setTimeout(() => {
+          initEliteLab();
+          resizeEliteLab();
+        }, 60);
+      }
 
       if (window.innerWidth < 768) {
         const sidebar = document.getElementById('sidebar');
@@ -850,171 +1016,567 @@
       if (idx < sections.length - 1) showSection(sections[idx + 1]);
     }
 
-    // --- Draggable Injection Marker (mouse + touch) ---
-    function enableMarkerDrag() {
-      const marker = document.getElementById('target-point');
-      const container = marker?.parentElement;
-      if (!marker || !container) return;
+    // --- Elite 3D Injection Lab ---
+    const eliteSiteData = {
+      ventrogluteal: {
+        label: 'Ventrogluteal',
+        kicker: 'Lateral hip safe zone',
+        copy: 'Use the greater trochanter, anterior superior iliac spine, and iliac crest to establish the target area.',
+        position: [0.42, 0.02, 0.20], normal: [0.92, 0.05, 0.38], view: 'right', depth: [66, 88]
+      },
+      deltoid: {
+        label: 'Deltoid',
+        kicker: 'Upper-arm landmarking',
+        copy: 'Locate the acromion and center the target within the deltoid muscle safety zone.',
+        position: [0.69, 0.92, 0.04], normal: [1, 0.02, 0.08], view: 'right', depth: [58, 80]
+      },
+      vastus: {
+        label: 'Vastus Lateralis',
+        kicker: 'Lateral thigh safe zone',
+        copy: 'Divide the anterolateral thigh into thirds and target the middle lateral segment.',
+        position: [0.31, -0.57, 0.20], normal: [0.88, 0.02, 0.46], view: 'right', depth: [64, 88]
+      },
+      dorsogluteal: {
+        label: 'Dorsogluteal',
+        kicker: 'Posterior safety-zone review',
+        copy: 'Review the upper-outer quadrant and the nearby sciatic-nerve avoid zone before proceeding.',
+        position: [0.34, -0.02, -0.34], normal: [0.12, 0.04, -1], view: 'back', depth: [68, 90]
+      }
+    };
 
-      let dragging = false;
+    let eliteScene = null;
+    let eliteCamera = null;
+    let eliteRenderer = null;
+    let eliteBodyGroup = null;
+    let eliteMuscleGroup = null;
+    let eliteBodyMeshes = [];
+    let eliteHotspots = {};
+    let eliteNeedle = null;
+    let eliteNeedleAnimation = null;
+    let eliteInitialized = false;
+    let eliteAnatomyVisible = false;
+    let eliteTargetRotation = { x: 0, y: 0 };
+    let elitePointer = { down: false, moved: false, x: 0, y: 0, rx: 0, ry: 0 };
+    let eliteResizeObserver = null;
+    let eliteToastTimer = null;
 
-      const startDrag = (e) => {
-        dragging = true;
-        marker.classList.add('scale-110');
+    function initEliteLab() {
+      if (eliteInitialized) return;
+      const canvas = document.getElementById('elite-three-canvas');
+      const stage = document.getElementById('elite-stage');
+      if (!canvas || !stage) return;
+
+      if (!window.THREE) {
+        const loading = document.getElementById('elite-stage-loading');
+        if (loading) loading.innerHTML = '<div class="text-center px-8"><span class="material-symbols-outlined text-5xl text-amber-300">view_in_ar</span><div class="mt-3 font-bold text-white">3D engine unavailable</div><div class="text-xs text-slate-400 mt-1">Check the internet connection and reload the module.</div></div>';
+        return;
+      }
+
+      eliteScene = new THREE.Scene();
+      eliteCamera = new THREE.PerspectiveCamera(34, 1, 0.1, 100);
+      eliteCamera.position.set(0, 0.15, 5.7);
+
+      eliteRenderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true, powerPreference: 'high-performance' });
+      eliteRenderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+      eliteRenderer.outputColorSpace = THREE.SRGBColorSpace;
+      eliteRenderer.shadowMap.enabled = true;
+      eliteRenderer.shadowMap.type = THREE.PCFSoftShadowMap;
+
+      const hemi = new THREE.HemisphereLight(0xbfe3ff, 0x16213a, 2.1);
+      eliteScene.add(hemi);
+      const key = new THREE.DirectionalLight(0xffffff, 2.4);
+      key.position.set(3.6, 4.8, 4.2);
+      key.castShadow = true;
+      eliteScene.add(key);
+      const rim = new THREE.DirectionalLight(0x3b82f6, 2.6);
+      rim.position.set(-4, 2.2, -4);
+      eliteScene.add(rim);
+      const fill = new THREE.PointLight(0x7dd3fc, 1.6, 10);
+      fill.position.set(0, 0.5, 3);
+      eliteScene.add(fill);
+
+      const platform = new THREE.Mesh(
+        new THREE.CylinderGeometry(1.35, 1.6, 0.12, 64),
+        new THREE.MeshStandardMaterial({ color: 0x0f1f3d, metalness: 0.55, roughness: 0.35 })
+      );
+      platform.position.y = -1.88;
+      platform.receiveShadow = true;
+      eliteScene.add(platform);
+      const platformRing = new THREE.Mesh(
+        new THREE.TorusGeometry(1.18, 0.018, 12, 96),
+        new THREE.MeshBasicMaterial({ color: 0x38bdf8, transparent: true, opacity: 0.72 })
+      );
+      platformRing.rotation.x = Math.PI / 2;
+      platformRing.position.y = -1.81;
+      eliteScene.add(platformRing);
+
+      createElitePatientModel();
+      createEliteHotspots();
+      bindEliteStageControls(canvas);
+
+      eliteResizeObserver = new ResizeObserver(resizeEliteLab);
+      eliteResizeObserver.observe(stage);
+      window.addEventListener('resize', resizeEliteLab);
+      eliteInitialized = true;
+      resizeEliteLab();
+      animateEliteLab();
+
+      const loading = document.getElementById('elite-stage-loading');
+      if (loading) setTimeout(() => loading.style.display = 'none', 350);
+      updateEliteUI();
+    }
+
+    function createElitePatientModel() {
+      eliteBodyGroup = new THREE.Group();
+      eliteBodyGroup.position.y = 0.02;
+      eliteScene.add(eliteBodyGroup);
+
+      const skin = new THREE.MeshStandardMaterial({ color: 0xd7a07d, roughness: 0.62, metalness: 0.02, transparent: true, opacity: 1 });
+      const skinDark = new THREE.MeshStandardMaterial({ color: 0xc68b69, roughness: 0.68, transparent: true, opacity: 1 });
+      const scrub = new THREE.MeshStandardMaterial({ color: 0x163b68, roughness: 0.55, metalness: 0.05, transparent: true, opacity: 1 });
+
+      const addMesh = (geometry, material, position, scale = [1,1,1], rotation = [0,0,0]) => {
+        const mesh = new THREE.Mesh(geometry, material);
+        mesh.position.set(...position);
+        mesh.scale.set(...scale);
+        mesh.rotation.set(...rotation);
+        mesh.castShadow = true;
+        mesh.receiveShadow = true;
+        eliteBodyGroup.add(mesh);
+        eliteBodyMeshes.push(mesh);
+        return mesh;
+      };
+
+      addMesh(new THREE.SphereGeometry(0.34, 40, 32), skin, [0, 1.72, 0], [1, 1.18, .96]);
+      addMesh(new THREE.CylinderGeometry(.14,.16,.26,28), skinDark, [0,1.34,0]);
+      addMesh(new THREE.CapsuleGeometry(.48,.58,12,32), scrub, [0,.78,0], [1.05,1,.72]);
+      addMesh(new THREE.SphereGeometry(.48,36,28), scrub, [0,.09,0], [1.04,.72,.86]);
+
+      addMesh(new THREE.CapsuleGeometry(.135,.48,10,26), skin, [-.61,.83,0], [1,1,1], [0,0,-.16]);
+      addMesh(new THREE.CapsuleGeometry(.135,.48,10,26), skin, [.61,.83,0], [1,1,1], [0,0,.16]);
+      addMesh(new THREE.CapsuleGeometry(.115,.48,10,26), skin, [-.70,.27,.02], [1,1,1], [0,0,-.03]);
+      addMesh(new THREE.CapsuleGeometry(.115,.48,10,26), skin, [.70,.27,.02], [1,1,1], [0,0,.03]);
+      addMesh(new THREE.SphereGeometry(.13,24,20), skinDark, [-.71,-.05,.02], [1,.9,.8]);
+      addMesh(new THREE.SphereGeometry(.13,24,20), skinDark, [.71,-.05,.02], [1,.9,.8]);
+
+      addMesh(new THREE.CapsuleGeometry(.205,.68,10,28), scrub, [-.27,-.62,0], [1,1,.9]);
+      addMesh(new THREE.CapsuleGeometry(.205,.68,10,28), scrub, [.27,-.62,0], [1,1,.9]);
+      addMesh(new THREE.CapsuleGeometry(.16,.62,10,26), skin, [-.27,-1.37,0], [1,1,.92]);
+      addMesh(new THREE.CapsuleGeometry(.16,.62,10,26), skin, [.27,-1.37,0], [1,1,.92]);
+      addMesh(new THREE.SphereGeometry(.19,26,20), new THREE.MeshStandardMaterial({color:0x17243d,roughness:.78}), [-.27,-1.77,.08], [1.35,.55,2]);
+      addMesh(new THREE.SphereGeometry(.19,26,20), new THREE.MeshStandardMaterial({color:0x17243d,roughness:.78}), [.27,-1.77,.08], [1.35,.55,2]);
+
+      eliteMuscleGroup = new THREE.Group();
+      eliteMuscleGroup.visible = false;
+      eliteBodyGroup.add(eliteMuscleGroup);
+      const muscle = new THREE.MeshStandardMaterial({ color:0xc43f4c, roughness:.56, transparent:true, opacity:.88, emissive:0x3a0710, emissiveIntensity:.22 });
+      const muscleLite = new THREE.MeshStandardMaterial({ color:0xe36a5c, roughness:.55, transparent:true, opacity:.78, emissive:0x3b0b0b, emissiveIntensity:.18 });
+
+      const addMuscle = (geometry, material, position, scale=[1,1,1], rotation=[0,0,0]) => {
+        const m = new THREE.Mesh(geometry,material); m.position.set(...position); m.scale.set(...scale); m.rotation.set(...rotation); eliteMuscleGroup.add(m); return m;
+      };
+      addMuscle(new THREE.SphereGeometry(.17,28,22), muscle, [.62,.94,.015],[.9,1.25,.95]);
+      addMuscle(new THREE.SphereGeometry(.22,28,22), muscleLite, [.32,.05,-.30],[1.0,.92,.55]);
+      addMuscle(new THREE.SphereGeometry(.26,28,22), muscle, [.28,-.12,-.31],[1.0,.85,.58]);
+      addMuscle(new THREE.CapsuleGeometry(.12,.46,8,24), muscleLite, [.30,-.62,.14],[1.0,1.2,.8]);
+    }
+
+    function createEliteHotspots() {
+      Object.entries(eliteSiteData).forEach(([key, data]) => {
+        const group = new THREE.Group();
+        group.position.set(...data.position);
+        group.userData.site = key;
+
+        const orb = new THREE.Mesh(
+          new THREE.SphereGeometry(.065,24,20),
+          new THREE.MeshStandardMaterial({ color:0x38bdf8, emissive:0x0ea5e9, emissiveIntensity:1.4, transparent:true, opacity:.62 })
+        );
+        orb.userData.site = key;
+        group.add(orb);
+
+        const ring = new THREE.Mesh(
+          new THREE.TorusGeometry(.115,.012,10,48),
+          new THREE.MeshBasicMaterial({ color:0x7dd3fc, transparent:true, opacity:.40, depthTest:false })
+        );
+        ring.userData.site = key;
+        const normal = new THREE.Vector3(...data.normal).normalize();
+        ring.quaternion.setFromUnitVectors(new THREE.Vector3(0,0,1), normal);
+        group.add(ring);
+        group.userData.ring = ring;
+        group.userData.orb = orb;
+        eliteBodyGroup.add(group);
+        eliteHotspots[key] = group;
+      });
+    }
+
+    function bindEliteStageControls(canvas) {
+      const raycaster = new THREE.Raycaster();
+      const pointer = new THREE.Vector2();
+
+      canvas.addEventListener('pointerdown', (e) => {
+        elitePointer.down = true; elitePointer.moved = false; elitePointer.x = e.clientX; elitePointer.y = e.clientY;
+        elitePointer.rx = eliteTargetRotation.x; elitePointer.ry = eliteTargetRotation.y;
+        canvas.setPointerCapture?.(e.pointerId);
+      });
+      canvas.addEventListener('pointermove', (e) => {
+        if (!elitePointer.down) return;
+        const dx = e.clientX - elitePointer.x; const dy = e.clientY - elitePointer.y;
+        if (Math.abs(dx)+Math.abs(dy) > 5) elitePointer.moved = true;
+        eliteTargetRotation.y = elitePointer.ry + dx * .008;
+        eliteTargetRotation.x = Math.max(-.35, Math.min(.35, elitePointer.rx + dy * .004));
+      });
+      canvas.addEventListener('pointerup', (e) => {
+        if (!elitePointer.down) return;
+        elitePointer.down = false;
+        if (!elitePointer.moved) {
+          const rect = canvas.getBoundingClientRect();
+          pointer.x = ((e.clientX - rect.left) / rect.width) * 2 - 1;
+          pointer.y = -((e.clientY - rect.top) / rect.height) * 2 + 1;
+          raycaster.setFromCamera(pointer, eliteCamera);
+          const targets = Object.values(eliteHotspots).flatMap(g => g.children);
+          const hits = raycaster.intersectObjects(targets, false);
+          if (hits.length && hits[0].object.userData.site) setEliteSite(hits[0].object.userData.site);
+        }
+      });
+      canvas.addEventListener('pointercancel', () => elitePointer.down = false);
+      canvas.addEventListener('wheel', (e) => {
         e.preventDefault();
-      };
-
-      const endDrag = () => {
-        dragging = false;
-        marker.classList.remove('scale-110');
-      };
-
-      const onDrag = (e) => {
-        if (!dragging) return;
-
-        const rect = container.getBoundingClientRect();
-        const clientX = e.touches ? e.touches[0].clientX : e.clientX;
-        const clientY = e.touches ? e.touches[0].clientY : e.clientY;
-
-        let x = clientX - rect.left;
-        let y = clientY - rect.top;
-
-        x = Math.max(0, Math.min(x, rect.width));
-        y = Math.max(0, Math.min(y, rect.height));
-
-        marker.style.left = `${(x / rect.width) * 100}%`;
-        marker.style.top  = `${(y / rect.height) * 100}%`;
-      };
-
-      marker.addEventListener('mousedown', startDrag);
-      marker.addEventListener('touchstart', startDrag, { passive: false });
-
-      window.addEventListener('mousemove', onDrag);
-      window.addEventListener('touchmove', onDrag, { passive: false });
-
-      window.addEventListener('mouseup', endDrag);
-      window.addEventListener('touchend', endDrag);
+        eliteCamera.position.z = Math.max(4.1, Math.min(7.2, eliteCamera.position.z + e.deltaY * .003));
+      }, { passive:false });
     }
 
-    function setSimSite(site, btnEl) {
-      simulationState = { site, cleaned: false, located: false };
+    function animateEliteLab(time = 0) {
+      requestAnimationFrame(animateEliteLab);
+      if (!eliteRenderer || !eliteScene || !eliteCamera || !eliteBodyGroup) return;
 
-      // Clear any prior success message before loading a new injection site.
-      hideSimMsg();
+      eliteBodyGroup.rotation.x += (eliteTargetRotation.x - eliteBodyGroup.rotation.x) * .08;
+      eliteBodyGroup.rotation.y += (eliteTargetRotation.y - eliteBodyGroup.rotation.y) * .08;
 
-      const view = document.getElementById('sim-view');
-      document.getElementById('sim-actions').classList.remove('hidden');
-      document.getElementById('sim-status').innerText = 'Phase 1: Preparation Needed';
-      document.getElementById('inject-btn').classList.add('opacity-50', 'cursor-not-allowed');
+      Object.entries(eliteHotspots).forEach(([key, group], idx) => {
+        const selected = simulationState.site === key;
+        const pulse = 1 + Math.sin(time * .004 + idx) * (selected ? .16 : .06);
+        group.scale.setScalar(pulse);
+        group.userData.orb.material.opacity = selected ? .98 : .34;
+        group.userData.orb.material.emissiveIntensity = selected ? 2.5 : .9;
+        group.userData.ring.material.opacity = selected ? .92 : .22;
+      });
 
-      // Choose image per site (set these filenames to match your actual assets)
-      const simImage =
-        site === 'Ventrogluteal'
-          ? 'muscles.png'
-          : (site === 'gluteal'
-              ? 'ventrogluteal.png'
-              : (site === 'dorsal'
-                  ? 'dorsogluteal.png'
-                  : (site === 'deltoid' ? 'deltoid.png' : '')));
+      if (eliteNeedleAnimation && eliteNeedle) {
+        const t = Math.min(1, (performance.now() - eliteNeedleAnimation.startTime) / eliteNeedleAnimation.duration);
+        const eased = 1 - Math.pow(1 - t, 3);
+        eliteNeedle.position.lerpVectors(eliteNeedleAnimation.from, eliteNeedleAnimation.to, eased);
+        if (t >= 1) eliteNeedleAnimation = null;
+      }
 
-      const landmarkLabel =
-        site === 'Ventrogluteal'
-          ? 'Acromion Process'
-          : (site === 'dorsal'
-              ? 'Sciatic Nerve Avoid Zone'
-              : (site === 'deltoid' ? 'Acromion process + axillary nerve safety zone' : 'Ventrogluteal Safe Zone'));
-
-      const landmarkStyle =
-        site === 'deltoid'
-          ? 'top: 12%; right: 5%; left: auto; max-width: 210px;'
-          : 'top: 24%; left: 44%; max-width: 220px;';
-
-      const targetPointStyle =
-        site === 'deltoid'
-          ? 'top: 46%; left: 47%;'
-          : 'top: 40%; left: 50%;';
-
-      view.innerHTML = `
-        <div class="relative w-full h-full">
-          <img src="${simImage}"
-               class="w-full h-full object-contain opacity-90"
-               alt="Injection anatomy diagram"
-               loading="lazy" decoding="async"
-               onerror="this.onerror=null; this.src=window.__missingImgSvg('Missing: ${simImage}');" />
-          <div id="target-point"
-               class="absolute w-12 h-12 border-4 border-dashed border-white/40 rounded-full cursor-crosshair hover:border-blue-500 flex items-center justify-center"
-               style="${targetPointStyle}">
-            <span class="material-symbols-outlined text-white/25">close</span>
-          </div>
-          <div id="landmark-guide" class="absolute inset-0 pointer-events-none opacity-0 transition-opacity">
-            <div class="absolute bg-green-500/25 border border-green-400/60 rounded-xl px-3 py-2 text-xs leading-tight text-white shadow-xl backdrop-blur-sm whitespace-normal"
-                 style="${landmarkStyle}">${landmarkLabel}</div>
-          </div>
-        </div>
-      `;
-
-      setTimeout(enableMarkerDrag, 50);
-
-      document.querySelectorAll('.sim-site-btn').forEach(b => b.classList.remove('border-blue-500', 'bg-slate-700/50'));
-      if (btnEl) btnEl.classList.add('border-blue-500', 'bg-slate-700/50');
+      eliteRenderer.render(eliteScene, eliteCamera);
     }
 
-    function simAction(action) {
-      if (!simulationState.site) return;
+    function resizeEliteLab() {
+      if (!eliteRenderer || !eliteCamera) return;
+      const stage = document.getElementById('elite-stage');
+      if (!stage) return;
+      const rect = stage.getBoundingClientRect();
+      if (rect.width < 10 || rect.height < 10) return;
+      eliteRenderer.setSize(rect.width, rect.height, false);
+      eliteCamera.aspect = rect.width / rect.height;
+      eliteCamera.updateProjectionMatrix();
+    }
 
-      const status = document.getElementById('sim-status');
+    function setEliteView(view, btnEl) {
+      const views = { front:{x:0,y:0}, right:{x:0,y:-Math.PI/2}, back:{x:0,y:Math.PI} };
+      if (!views[view]) return;
+      eliteTargetRotation = {...views[view]};
+      document.querySelectorAll('.stage-tool[data-view]').forEach(b => b.classList.remove('active'));
+      if (btnEl) btnEl.classList.add('active');
+    }
 
-      if (action === 'clean') {
-        simulationState.cleaned = true;
-        showSimMsg("Site Sanitized", "bg-green-600");
-        status.innerText = 'Phase 2: Locate Landmark';
-      } else if (action === 'locate') {
-        if (!simulationState.cleaned) return showSimMsg("Clean site first!", "bg-orange-600");
-        simulationState.located = true;
-        const guide = document.getElementById('landmark-guide');
-        if (guide) guide.classList.remove('opacity-0');
-        showSimMsg("Landmark Identified", "bg-blue-600");
-        status.innerText = 'Phase 3: Ready for Injection';
-        document.getElementById('inject-btn').classList.remove('opacity-50', 'cursor-not-allowed');
-      } else if (action === 'inject') {
-        if (!simulationState.located) return;
-        showSimMsg("Injection Successful!", "bg-indigo-600");
-        status.innerText = 'Procedure Complete';
+    function focusSelectedSite() {
+      if (!simulationState.site) return showSimMsg('Select a site first', 'bg-amber-600');
+      const view = eliteSiteData[simulationState.site].view;
+      const btn = document.querySelector(`.stage-tool[data-view="${view}"]`);
+      setEliteView(view, btn);
+      eliteCamera.position.z = 4.85;
+      showSimMsg(`${eliteSiteData[simulationState.site].label} centered`, 'bg-blue-600');
+    }
 
-        const view = document.getElementById('sim-view');
-        view.classList.add('brightness-150');
-        setTimeout(() => view.classList.remove('brightness-150'), 200);
+    function toggleAnatomyLayer(force) {
+      if (!eliteInitialized) initEliteLab();
+      eliteAnatomyVisible = typeof force === 'boolean' ? force : !eliteAnatomyVisible;
+      if (eliteMuscleGroup) eliteMuscleGroup.visible = eliteAnatomyVisible;
+      eliteBodyMeshes.forEach(mesh => {
+        if (mesh.material && mesh.material.transparent) mesh.material.opacity = eliteAnatomyVisible ? .24 : 1;
+      });
+      const btn = document.getElementById('anatomy-toggle');
+      if (btn) btn.classList.toggle('active', eliteAnatomyVisible);
+      showSimMsg(eliteAnatomyVisible ? 'Anatomy layer enabled' : 'Surface view restored', eliteAnatomyVisible ? 'bg-violet-600' : 'bg-slate-700');
+    }
+
+    function setEliteSite(site, btnEl) {
+      if (!eliteSiteData[site]) return;
+      initEliteLab();
+      simulationState = {
+        site, verified:false, prepared:false, cleaned:false, located:false, injected:false,
+        angle:90, depth:75, needle:simulationState.needle || '1.5 in', score:12, phase:1, guided:simulationState.guided
+      };
+      removeEliteNeedle();
+      document.querySelectorAll('.elite-site-card').forEach(b => b.classList.toggle('active', b.dataset.site === site));
+      const siteBtn = btnEl || document.querySelector(`.elite-site-card[data-site="${site}"]`);
+      if (siteBtn) siteBtn.classList.add('active');
+      const data = eliteSiteData[site];
+      document.getElementById('stage-site-kicker').innerText = data.kicker;
+      document.getElementById('stage-site-title').innerText = data.label;
+      document.getElementById('stage-site-copy').innerText = data.copy;
+      const viewBtn = document.querySelector(`.stage-tool[data-view="${data.view}"]`);
+      setEliteView(data.view, viewBtn);
+      updateEliteUI();
+      showSimMsg(`${data.label} selected`, 'bg-blue-600');
+    }
+
+    function completeLabStep(action) {
+      const s = simulationState;
+      if (!s.site) return showSimMsg('Choose an injection site first', 'bg-amber-600');
+      if (action === 'verify') {
+        s.verified = true; s.phase = 2; s.score = Math.max(s.score, 27);
+        showSimMsg('Patient and order verified', 'bg-emerald-600');
+      } else if (action === 'prepare') {
+        if (!s.verified) return showSimMsg('Complete verification first', 'bg-amber-600');
+        s.prepared = true; s.phase = 3; s.score = Math.max(s.score, 43);
+        showSimMsg(`Equipment prepared · ${s.needle}`, 'bg-emerald-600');
+      } else if (action === 'clean') {
+        if (!s.prepared) return showSimMsg('Prepare equipment first', 'bg-amber-600');
+        s.cleaned = true; s.phase = 3; s.score = Math.max(s.score, 58);
+        showSimMsg('Site cleansed using aseptic technique', 'bg-emerald-600');
+      } else if (action === 'landmark') {
+        if (!s.cleaned) return showSimMsg('Cleanse the site first', 'bg-amber-600');
+        s.located = true; s.phase = 4; s.score = Math.max(s.score, 73);
+        toggleAnatomyLayer(true);
+        focusSelectedSite();
+        showSimMsg('Safe landmark zone identified', 'bg-sky-600');
+      }
+      updateEliteUI();
+    }
+
+    function setNeedleSize(value, btnEl) {
+      simulationState.needle = value;
+      document.querySelectorAll('.needle-option').forEach(b => b.classList.remove('active'));
+      if (btnEl) btnEl.classList.add('active');
+      const label = document.getElementById('needle-label');
+      if (label) label.innerText = value;
+    }
+
+    function updateEliteTechnique(type, value) {
+      value = Number(value);
+      if (type === 'angle') {
+        simulationState.angle = value;
+        document.getElementById('angle-value').innerText = `${value}°`;
+      } else {
+        simulationState.depth = value;
+        document.getElementById('depth-value').innerText = `${value}%`;
+        const gauge = document.getElementById('tissue-gauge');
+        if (gauge) gauge.style.setProperty('--needle-depth', `${Math.min(94, Math.max(20, value * .78))}%`);
       }
     }
 
-    let simMsgTimer = null;
+    function performEliteInjection() {
+      const s = simulationState;
+      if (!s.located || !s.site) return showSimMsg('Complete landmarking before injection', 'bg-amber-600');
+      if (s.injected) return;
+      s.injected = true; s.phase = 5;
 
-    function simMsgClasses(color, visible) {
-      return `absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 ${color} text-white px-8 py-4 rounded-2xl font-bold shadow-2xl transition-all duration-300 z-50 ${visible ? 'scale-100 opacity-100' : 'scale-0 opacity-0 pointer-events-none'}`;
+      const angleDelta = Math.abs(s.angle - 90);
+      const anglePoints = angleDelta <= 3 ? 15 : angleDelta <= 8 ? 10 : angleDelta <= 15 ? 6 : 2;
+      const [minDepth,maxDepth] = eliteSiteData[s.site].depth;
+      const depthPoints = s.depth >= minDepth && s.depth <= maxDepth ? 12 : (s.depth >= minDepth-8 && s.depth <= maxDepth+8 ? 8 : 3);
+      s.score = Math.min(100, 73 + anglePoints + depthPoints);
+
+      animateEliteNeedle();
+      showSimMsg('Injection in progress…', 'bg-indigo-600');
+      updateEliteUI();
+      setTimeout(() => {
+        s.phase = 6;
+        updateEliteUI();
+        showEliteSummary();
+      }, 1350);
+    }
+
+    function animateEliteNeedle() {
+      removeEliteNeedle();
+      const data = eliteSiteData[simulationState.site];
+      const point = new THREE.Vector3(...data.position);
+      const normal = new THREE.Vector3(...data.normal).normalize();
+      const direction = normal.clone().multiplyScalar(-1);
+      eliteNeedle = new THREE.Group();
+
+      const shaft = new THREE.Mesh(new THREE.CylinderGeometry(.009,.009,.82,12), new THREE.MeshStandardMaterial({color:0xdbeafe,metalness:.82,roughness:.18}));
+      shaft.position.y = -.41;
+      eliteNeedle.add(shaft);
+      const hub = new THREE.Mesh(new THREE.CylinderGeometry(.045,.055,.18,20), new THREE.MeshStandardMaterial({color:0x3b82f6,transparent:true,opacity:.82,roughness:.35}));
+      hub.position.y = .04;
+      eliteNeedle.add(hub);
+      const barrel = new THREE.Mesh(new THREE.CylinderGeometry(.075,.075,.58,24), new THREE.MeshStandardMaterial({color:0xe0f2fe,transparent:true,opacity:.34,roughness:.2}));
+      barrel.position.y = .39;
+      eliteNeedle.add(barrel);
+      eliteNeedle.quaternion.setFromUnitVectors(new THREE.Vector3(0,-1,0), direction);
+
+      const from = point.clone().add(normal.clone().multiplyScalar(1.15));
+      const to = point.clone().add(normal.clone().multiplyScalar(.18));
+      eliteNeedle.position.copy(from);
+      eliteBodyGroup.add(eliteNeedle);
+      eliteNeedleAnimation = { from, to, startTime:performance.now(), duration:1050 };
+    }
+
+    function removeEliteNeedle() {
+      if (eliteNeedle && eliteNeedle.parent) eliteNeedle.parent.remove(eliteNeedle);
+      eliteNeedle = null; eliteNeedleAnimation = null;
+    }
+
+    function updateEliteUI() {
+      const s = simulationState;
+      const completedPhases = s.phase >= 6 ? 6 : Math.max(0, s.phase);
+      const score = Math.round(s.score || 0);
+      const rank = score >= 95 ? 'Elite' : score >= 85 ? 'Proficient' : score >= 70 ? 'Developing' : score > 0 ? 'In Progress' : 'Not Started';
+      const scoreEl = document.getElementById('elite-score');
+      if (scoreEl) scoreEl.innerText = score;
+      const ring = document.getElementById('clinical-score-ring');
+      if (ring) ring.style.setProperty('--score', `${score}%`);
+      const rankEl = document.getElementById('elite-rank');
+      if (rankEl) rankEl.innerText = rank;
+      const pLabel = document.getElementById('elite-progress-label');
+      if (pLabel) pLabel.innerText = `${completedPhases} of 6 phases complete`;
+
+      document.querySelectorAll('.elite-step').forEach((el, idx) => {
+        el.classList.toggle('complete', idx < s.phase || s.phase >= 6);
+        el.classList.toggle('active', idx === Math.min(s.phase,5) && s.phase < 6);
+        const dot = el.querySelector('.step-dot');
+        if (dot) dot.innerText = idx < s.phase || s.phase >= 6 ? '✓' : String(idx+1);
+      });
+
+      const checks = {
+        site: !!s.site,
+        verified: s.verified,
+        prepared: s.prepared,
+        cleaned: s.cleaned && s.located,
+        injected: s.injected
+      };
+      const checkOrder = ['site','verified','prepared','cleaned','injected'];
+      document.querySelectorAll('.elite-check').forEach(el => {
+        const key = el.dataset.check;
+        el.classList.toggle('complete', !!checks[key]);
+        const nextKey = checkOrder.find(k => !checks[k]);
+        el.classList.toggle('current', key === nextKey);
+        const icon = el.querySelector('.material-symbols-outlined');
+        if (icon && checks[key]) icon.innerText = 'check_circle';
+      });
+
+      setDisabled('verify-btn', !s.site || s.verified);
+      setDisabled('prepare-btn', !s.verified || s.prepared);
+      setDisabled('clean-btn', !s.prepared || s.cleaned);
+      setDisabled('landmark-btn', !s.cleaned || s.located);
+      setDisabled('inject-btn', !s.located || s.injected);
+
+      let title = 'Choose an injection site';
+      let copy = 'Select a hotspot on the 3D patient or use the site menu.';
+      let phaseLabel = 'Phase 1';
+      if (s.site && !s.verified) { title='Verify before you prepare'; copy='Confirm the patient, medication order, dose, route, timing, and required product instructions.'; phaseLabel='Phase 2'; }
+      else if (s.verified && !s.prepared) { title='Prepare equipment'; copy=`Confirm supplies and the selected ${s.needle} training needle.`; phaseLabel='Phase 3'; }
+      else if (s.prepared && !s.cleaned) { title='Establish aseptic technique'; copy='Cleanse the selected site and allow it to dry before landmarking.'; phaseLabel='Phase 3'; }
+      else if (s.cleaned && !s.located) { title='Identify the safe zone'; copy='Use the anatomy layer and site-specific landmarks to confirm placement.'; phaseLabel='Phase 4'; }
+      else if (s.located && !s.injected) { title='Set technique and inject'; copy='Review the insertion angle and training depth, then administer the simulated dose.'; phaseLabel='Phase 5'; }
+      else if (s.injected) { title='Procedure complete'; copy='Review your mastery score and coaching feedback in the debrief.'; phaseLabel='Debrief'; }
+      const coachTitle = document.getElementById('coach-title'); if (coachTitle) coachTitle.innerText=title;
+      const coachCopy = document.getElementById('coach-copy'); if (coachCopy) coachCopy.innerText=copy;
+      const status = document.getElementById('sim-status'); if (status) status.innerText=phaseLabel;
+    }
+
+    function setDisabled(id, disabled) {
+      const el = document.getElementById(id); if (el) el.disabled = disabled;
+    }
+
+    function toggleEliteGuidance() {
+      simulationState.guided = !simulationState.guided;
+      const toggle = document.getElementById('guidance-toggle');
+      const copy = document.getElementById('guidance-copy');
+      if (toggle) toggle.innerText = simulationState.guided ? 'GUIDED' : 'ASSESSMENT';
+      if (copy) copy.innerText = simulationState.guided ? 'Coaching prompts and landmark cues are enabled.' : 'Prompts are reduced for independent practice.';
+      document.querySelectorAll('.elite-check > div > div:last-child').forEach(el => el.style.display = simulationState.guided ? '' : 'none');
+    }
+
+    function resetEliteLab() {
+      const guided = simulationState.guided;
+      simulationState = { site:null,verified:false,prepared:false,cleaned:false,located:false,injected:false,angle:90,depth:75,needle:'1.5 in',score:0,phase:0,guided };
+      removeEliteNeedle();
+      document.querySelectorAll('.elite-site-card').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.needle-option').forEach((b,i) => b.classList.toggle('active', i===1));
+      const angle = document.getElementById('angle-range'); if (angle) angle.value=90;
+      const depth = document.getElementById('depth-range'); if (depth) depth.value=75;
+      updateEliteTechnique('angle',90); updateEliteTechnique('depth',75);
+      document.getElementById('stage-site-kicker').innerText='Awaiting site selection';
+      document.getElementById('stage-site-title').innerText='Explore the 3D patient';
+      document.getElementById('stage-site-copy').innerText='Drag to rotate the model, scroll to zoom, or select a site from the left panel.';
+      toggleAnatomyLayer(false);
+      setEliteView('front', document.querySelector('.stage-tool[data-view="front"]'));
+      eliteCamera && (eliteCamera.position.z=5.7);
+      updateEliteUI();
+      closeEliteSummary();
+      showSimMsg('Lab reset', 'bg-slate-700');
+    }
+
+    function showEliteSummary() {
+      let modal = document.getElementById('elite-summary');
+      if (!modal) {
+        modal = document.createElement('div');
+        modal.id='elite-summary'; modal.className='elite-summary';
+        document.body.appendChild(modal);
+      }
+      const s=simulationState, data=eliteSiteData[s.site];
+      const angleText = Math.abs(s.angle-90)<=3 ? 'Excellent 90° alignment' : `Angle was ${s.angle}°; review perpendicular IM insertion.`;
+      const [minDepth,maxDepth]=data.depth;
+      const depthText = s.depth>=minDepth&&s.depth<=maxDepth ? 'Training depth reached the target muscle zone' : 'Training depth fell outside the simulator target zone';
+      const grade = s.score>=95?'A+':s.score>=90?'A':s.score>=85?'B+':s.score>=80?'B':s.score>=70?'C':'Review';
+      modal.innerHTML = `
+        <div class="elite-summary-card relative">
+          <div id="confetti-layer" class="absolute inset-x-0 top-0 h-72 overflow-hidden pointer-events-none"></div>
+          <div class="p-7 md:p-9 border-b border-white/10 bg-gradient-to-br from-blue-600/18 to-violet-600/12">
+            <div class="flex flex-col sm:flex-row items-start sm:items-center gap-5">
+              <div class="mastery-grade">${grade}</div>
+              <div class="flex-1"><div class="text-[10px] uppercase tracking-[.22em] font-extrabold text-sky-300">Simulation Debrief</div><h3 class="text-3xl font-black mt-1">${s.score}% Clinical Mastery</h3><p class="text-slate-300 text-sm mt-2">${data.label} injection workflow completed.</p></div>
+              <button onclick="closeEliteSummary()" class="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center"><span class="material-symbols-outlined">close</span></button>
+            </div>
+          </div>
+          <div class="p-7 md:p-9 grid md:grid-cols-2 gap-5">
+            <div class="rounded-2xl border border-emerald-400/20 bg-emerald-500/8 p-5"><div class="flex items-center gap-2 text-emerald-300 font-extrabold"><span class="material-symbols-outlined">workspace_premium</span>Strengths</div><ul class="mt-3 space-y-2 text-sm text-slate-300"><li>✓ Completed the full safety sequence</li><li>✓ Identified the ${data.label} landmark zone</li><li>✓ ${angleText}</li></ul></div>
+            <div class="rounded-2xl border border-sky-400/20 bg-sky-500/8 p-5"><div class="flex items-center gap-2 text-sky-300 font-extrabold"><span class="material-symbols-outlined">clinical_notes</span>Technique Feedback</div><ul class="mt-3 space-y-2 text-sm text-slate-300"><li>• Needle selection: ${s.needle}</li><li>• Insertion angle: ${s.angle}°</li><li>• ${depthText}</li></ul></div>
+          </div>
+          <div class="px-7 md:px-9 pb-8 flex flex-col sm:flex-row gap-3"><button class="elite-action secondary" onclick="closeEliteSummary()"><span class="material-symbols-outlined">visibility</span>Review 3D Model</button><button class="elite-action" onclick="resetEliteLab()"><span class="material-symbols-outlined">replay</span>Practice Another Site</button></div>
+        </div>`;
+      modal.classList.add('show');
+      launchEliteConfetti();
+    }
+
+    function closeEliteSummary() {
+      const modal=document.getElementById('elite-summary'); if (modal) modal.classList.remove('show');
+    }
+
+    function launchEliteConfetti() {
+      const layer=document.getElementById('confetti-layer'); if (!layer) return;
+      layer.innerHTML='';
+      const colors=['#38bdf8','#818cf8','#34d399','#fbbf24','#f472b6'];
+      for(let i=0;i<42;i++){
+        const p=document.createElement('span'); p.className='confetti-piece'; p.style.left=`${Math.random()*100}%`; p.style.top=`${-10-Math.random()*80}px`; p.style.background=colors[i%colors.length]; p.style.animationDelay=`${Math.random()*.45}s`; layer.appendChild(p);
+      }
     }
 
     function hideSimMsg() {
-      const msg = document.getElementById('sim-msg');
-      if (!msg) return;
-      if (simMsgTimer) {
-        clearTimeout(simMsgTimer);
-        simMsgTimer = null;
-      }
-      msg.className = simMsgClasses('bg-blue-600', false);
+      const msg=document.getElementById('sim-msg'); if (!msg) return;
+      if (eliteToastTimer) clearTimeout(eliteToastTimer);
+      msg.classList.remove('show'); eliteToastTimer=null;
     }
 
-    function showSimMsg(text, color) {
-      const msg = document.getElementById('sim-msg');
-      if (!msg) return;
-      if (simMsgTimer) clearTimeout(simMsgTimer);
-
-      msg.innerText = text;
-      msg.className = simMsgClasses(color, true);
-
-      simMsgTimer = setTimeout(() => {
-        msg.className = simMsgClasses(color, false);
-        simMsgTimer = null;
-      }, 1500);
+    function showSimMsg(text,color='bg-blue-600') {
+      const msg=document.getElementById('sim-msg'); if (!msg) return;
+      if (eliteToastTimer) clearTimeout(eliteToastTimer);
+      msg.className=`elite-toast ${color} show`; msg.innerText=text;
+      eliteToastTimer=setTimeout(()=>{msg.classList.remove('show');eliteToastTimer=null;},1450);
     }
 
     // --- Quiz Logic ---
